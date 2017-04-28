@@ -1,0 +1,50 @@
+body {
+        background: url("../images/120901_childrens_island_02.jpg");
+        background-size: cover;
+      }
+
+ul.nav {
+  background: rbga(0,0,0,.3);
+  font-family: 'Roboto',serif;
+  list-style-type: none;
+}
+
+ul.nav > li {
+   display: inline;
+   padding: 10px 40px;
+}
+
+.main {
+  font-family: 'Roboto', serif;
+  font-size: 22px;
+  color: white;
+  padding: 100px 300px 50px 300px;
+}
+.main h1 {
+  text-align: center;
+  font-family: 'Bevan', serif;
+  text-transform: uppercase;
+}
+.portfolio {
+  border: 2px;
+  border-color: solid white;
+  padding: 10px 0px 10px 0px;
+  background: rgba(0,0,0,0.5);
+}
+.portfolio ul {
+  text-align: center;
+}
+.portfolio li {
+  display: inline;
+  padding: 10px 50px 0px 50px;
+}
+a {
+  color: white;
+  font-weight: bold;
+}
+@media (max-width: 600px) {
+  ul {
+    padding: 5px;
+    display: block;
+  }
+}
