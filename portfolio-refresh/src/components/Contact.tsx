@@ -73,7 +73,7 @@ export default function Contact() {
           email: formData.email,
           message: formData.message,
           // Optional: Add these for better email formatting
-          subject: `New contact from ${formData.name}`,
+          subject: `kelvinma.com Inquiry from ${formData.name}`,
           from_name: formData.name,
           // Bot spam protection (Web3Forms feature)
           botcheck: false,
