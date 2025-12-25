@@ -1,0 +1,212 @@
+/**
+ * GLOBAL STYLES FOR PORTFOLIO SITE
+ * 
+ * This file imports Tailwind CSS and defines custom CSS variables (also called "custom properties")
+ * that we can use throughout our site for consistent theming.
+ * 
+ * CSS Variables: These are like variables in programming - you define them once and reuse them.
+ * They start with -- and are accessed using var(--variable-name)
+ */
+
+/* Import Tailwind CSS - this gives us all the utility classes like "flex", "text-center", etc. */
+@import "tailwindcss";
+
+/**
+ * ROOT VARIABLES (Light Mode)
+ * 
+ * Color scheme based on your previous vitality theme.
+ * Uses manual theme switching with .light and .dark classes on <html>.
+ * 
+ * Primary color: #0a8fd5 (vibrant professional blue from vitality theme)
+ * Dark backgrounds: #222222 (matches your previous design)
+ */
+:root,
+.light {
+  /* Background colors */
+  --background: #ffffff;           /* Main page background - white */
+  --background-secondary: #f5f5f5; /* Sections alternate - light gray (from vitality) */
+  
+  /* Text colors */
+  --foreground: #222222;           /* Primary text - dark gray (from vitality) */
+  --foreground-muted: #6b7280;     /* Secondary text - muted gray */
+  
+  /* Brand/Accent colors - vitality blue palette */
+  --primary: #0880c7;              /* Primary brand color - darker blue for better contrast */
+  --primary-hover: #065a8f;        /* Much darker blue for visible hover effect */
+  --primary-light: #e6f4fb;        /* Light blue for backgrounds */
+  
+  /* Border colors */
+  --border: #e5e7eb;               /* Default border color - light gray */
+  
+  /* Shadow values for depth */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/**
+ * TAILWIND THEME INTEGRATION
+ * 
+ * The @theme directive is specific to Tailwind CSS v4.
+ * It maps our CSS variables to Tailwind's color system so we can use them
+ * in Tailwind classes like "bg-background" or "text-foreground"
+ * 
+ * "inline" means these values are compiled directly into the CSS output
+ */
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-border: var(--border);
+  
+  /* Font families - using the Google Fonts loaded in layout.tsx */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/**
+ * DARK MODE
+ * 
+ * Manual dark mode using .dark class on <html>.
+ * ThemeProvider component manages this class based on user preference.
+ * 
+ * Maintains the vitality color scheme but adapted for dark backgrounds.
+ */
+.dark {
+  /* Dark mode backgrounds */
+  --background: #0a0a0a;           /* Almost black background */
+  --background-secondary: #222222; /* Dark gray for contrast (vitality dark) */
+  
+  /* Dark mode text */
+  --foreground: #ededed;           /* Off-white text */
+  --foreground-muted: #9ca3af;     /* Light gray for secondary text */
+  
+  /* Adjust primary colors for dark mode (brighter for visibility) */
+  --primary: #0a8fd5;              /* Keep vitality blue - works well on dark */
+  --primary-hover: #3da5e0;        /* Lighter blue for hover on dark */
+  --primary-light: #0d3a52;        /* Dark blue for backgrounds */
+  
+  /* Dark mode borders */
+  --border: #333333;               /* Visible border on dark backgrounds */
+}
+
+/**
+ * BODY ELEMENT STYLES
+ * 
+ * These styles are applied to the <body> tag and affect the entire page.
+ * 
+ * The background and color properties use our CSS variables,
+ * so they automatically adjust for light/dark mode.
+ */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  
+  /* 
+   * font-family fallback chain:
+   * 1. Try the custom font (Geist Sans from Google Fonts)
+   * 2. Fall back to system fonts if custom font fails to load
+   * 
+   * This ensures the site looks good even if fonts don't load
+   */
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", 
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* 
+   * antialiased: Makes text look smoother on all browsers
+   * This is a Tailwind utility that improves text rendering
+   */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * SMOOTH SCROLLING
+ * 
+ * When users click navigation links that jump to sections on the page,
+ * this makes the page smoothly scroll instead of jumping instantly.
+ * 
+ * Much better user experience for single-page portfolios!
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+/**
+ * LINK STYLES
+ * 
+ * Default styling for all links (<a> tags) in the site.
+ * We'll override these in specific components where needed.
+ */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/**
+ * BUTTON OVERRIDES
+ * 
+ * Ensure buttons with bg-primary have white text, not the default link color.
+ * The bg-primary class indicates a button, not a regular link.
+ */
+a.bg-primary,
+button.bg-primary {
+  color: white !important;
+}
+
+a.bg-primary:hover,
+button.bg-primary:hover {
+  color: white !important;
+}
+
+/**
+ * HEADING STYLES
+ * 
+ * Consistent styling for all headings.
+ * Setting font-weight and line-height for better typography.
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+/**
+ * UTILITY CLASSES
+ * 
+ * Custom utility classes we can use throughout our components.
+ * These supplement Tailwind's built-in utilities.
+ */
+
+/* Container for centering content with max width */
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Section spacing - consistent vertical spacing between major sections */
+.section-padding {
+  padding-top: 5rem;    /* 80px */
+  padding-bottom: 5rem; /* 80px */
+}
+
+/* On mobile devices, reduce section padding */
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 3rem;    /* 48px */
+    padding-bottom: 3rem; /* 48px */
+  }
+}
