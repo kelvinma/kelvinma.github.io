@@ -36,25 +36,64 @@ export default function Contact() {
   /**
    * Form Submission Handler
    * 
-   * In production, you'd typically:
-   * - Send data to an API route (Next.js API routes in /app/api)
-   * - Use a service like Formspree, SendGrid, or similar
-   * - Handle validation (client + server side)
+   * Using Web3Forms - a free email service for static sites.
+   * Sends form data to Web3Forms API, which forwards it to your email.
+   * 
+   * Web3Forms handles:
+   * - Email delivery to me@kelvinma.com
+   * - Spam protection
+   * - Form validation
+   * - No backend required!
    */
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // Prevent default form submission
     setStatus('submitting');
 
     try {
-      // TODO: Replace with actual form submission logic
-      // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
-      
-      // Simulating API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' }); // Reset form
+      /**
+       * Web3Forms API Integration
+       * 
+       * Endpoint: https://api.web3forms.com/submit
+       * Method: POST
+       * Content-Type: application/json
+       * 
+       * Required fields:
+       * - access_key: Your Web3Forms access key
+       * - name, email, message: Form data
+       */
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '5fe16617-2e0a-4a55-8ec4-d6bcb699c086', // Your Web3Forms access key
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          // Optional: Add these for better email formatting
+          subject: `New contact from ${formData.name}`,
+          from_name: formData.name,
+          // Bot spam protection (Web3Forms feature)
+          botcheck: false,
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Email sent successfully!
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' }); // Reset form
+      } else {
+        // Web3Forms returned an error
+        console.error('Web3Forms error:', data);
+        setStatus('error');
+      }
     } catch (error) {
+      // Network error or other issue
+      console.error('Form submission error:', error);
       setStatus('error');
     }
   };
