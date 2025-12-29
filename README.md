@@ -98,11 +98,36 @@ kelvinma.github.io/
 
 This site is hosted on **GitHub Pages**. The Next.js application is built and the output is deployed to the root directory of the repository.
 
-To deploy updates:
-1. Build the Next.js app: `cd portfolio-refresh && npm run build`
-2. Export static files to root directory (configured in `next.config.ts`)
-3. Commit and push changes to the main branch
-4. GitHub Pages automatically serves the updated site
+**Quick Deploy (Recommended):**
+```bash
+cd portfolio-refresh
+npm run deploy
+```
+
+This automated script will:
+1. Build the Next.js application (`npm run build`)
+2. Copy the static output from `out/` to the root directory
+3. Display next steps for committing and pushing
+
+**Manual Deploy:**
+If you prefer to deploy manually:
+```bash
+cd portfolio-refresh
+npm run build
+cd ..
+rm -rf _next *.html *.txt *.js *.css *.svg *.ico
+cp -r portfolio-refresh/out/* .
+```
+
+**After deploying (either method):**
+```bash
+git status                                    # Review changes
+git add .                                     # Stage all changes
+git commit -m "Deploy: Update site content"   # Commit
+git push origin main                          # Push to GitHub
+```
+
+GitHub Pages will automatically serve your updated site within a few minutes.
 
 ## 🎨 Site Sections
 
