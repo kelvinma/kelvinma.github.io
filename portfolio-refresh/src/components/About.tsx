@@ -38,8 +38,8 @@ export default function About() {
                   From Photojournalism to Engineering Leadership
                 </h3>
                 <p className="text-foreground-muted leading-relaxed">
-                  My career journey is unconventional: I started as a photojournalist for 
-                  The New York Times, Bloomberg News, and The Wall Street Journal, earning 
+                  My career journey is unconventional: I started as a photojournalist with a client list 
+                  that included The New York Times, Bloomberg News, and The Wall Street Journal, earning 
                   a Pulitzer Prize nomination for my coverage of the 2013 Boston Marathon bombings. 
                   In 2015, I transitioned to software engineering through General Assembly's 
                   Web Development Immersive program, bringing creative problem-solving skills 
