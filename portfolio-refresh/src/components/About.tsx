@@ -49,21 +49,29 @@ export default function About() {
               
               <div>
                 <h3 className="text-2xl font-semibold text-foreground mb-4">
-                  Current Focus
+                  Leading the AI-Augmented Engineering Era
                 </h3>
                 <p className="text-foreground-muted leading-relaxed mb-4">
-                  With 8+ years of experience building, scaling, and retaining high-performing 
-                  teams from startup to acquisition, I specialize in M&A integrations, AI adoption, 
-                  and creating engineering cultures where people do their best work. I'm particularly 
-                  passionate about team development, technical strategy, and mentoring the next 
-                  generation of engineering leaders.
+                  I'm a passionate advocate and power user of generative AI coding tools, championing
+                  their adoption across engineering teams to drive measurable productivity gains. At
+                  Travelers, I've led the successful integration of tools like GitHub Copilot and Claude
+                  into daily workflows, demonstrating that the future of software engineering isn't about
+                  replacing developers—it's about amplifying their capabilities.
+                </p>
+                <p className="text-foreground-muted leading-relaxed mb-4">
+                  With 8+ years of experience building, scaling, and retaining high-performing teams
+                  from startup to acquisition, I specialize in M&A integrations, AI-first development
+                  practices, and creating engineering cultures where people do their best work. I believe
+                  the most effective engineering leaders today are those who can blend strategic vision
+                  with hands-on technical expertise — I practice what I preach by using AI tools daily
+                  for everything from rapid prototyping to architectural planning.
                 </p>
                 <p className="text-foreground-muted leading-relaxed">
-                  Photography remains a personal creative outlet—you can follow my ongoing 
+                  Photography remains a personal creative outlet—you can follow my ongoing
                   work on{' '}
-                  <a 
-                    href="https://instagram.com/_kelvin_internet_" 
-                    target="_blank" 
+                  <a
+                    href="https://instagram.com/_kelvin_internet_"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:text-primary-hover underline"
                   >
@@ -81,10 +89,11 @@ export default function About() {
                 </h3>
                 <ul className="space-y-2">
                   {[
+                    'Generative AI Adoption & Developer Productivity',
+                    'AI-Augmented Development Practices',
                     'Engineering Leadership & Team Building',
-                    'Engineering Culture Development',
                     'M&A Integration & Post-Acquisition Leadership',
-                    'AI/ML Adoption & Strategy',
+                    'Engineering Culture & Developer Experience',
                     'Technical Architecture & System Design'
                   ].map((skill) => (
                     <li key={skill} className="flex items-start">
@@ -103,6 +112,7 @@ export default function About() {
                 </h3>
                 <ul className="space-y-2">
                   {[
+                    'GitHub Copilot, Claude, ChatGPT & AI Tools',
                     'Elixir / Phoenix Framework',
                     'React / TypeScript / Next.js',
                     'Ruby / Ruby on Rails',
@@ -132,20 +142,20 @@ export default function About() {
                 {
                   role: 'Director of Software Engineering',
                   company: 'Travelers Insurance',
-                  period: '2023 - Present',
-                  description: 'Leading engineering teams through M&A integration, AI adoption, and technical strategy.'
+                  period: '2025 - Present',
+                  description: 'Leading post-acquisition integration and championing generative AI adoption across engineering teams, driving significant productivity gains. Maintaining below-average team attrition through transparent communication and supportive leadership during organizational transition.'
                 },
                 {
-                  role: 'Engineering Manager',
+                  role: 'Sr. Manager, Engineering',
                   company: 'Corvus Insurance',
-                  period: '2020 - 2023',
-                  description: 'Built and scaled engineering teams, established technical practices and culture.'
+                  period: '2020 - 2025',
+                  description: 'Scaled engineering teams from 10 to 50+ engineers. Led Travelers partnership integration and launched two new insurance products. Aligned engineering roadmaps with business objectives while building high-performing, collaborative teams.'
                 },
                 {
-                  role: 'Software Engineer → Team Lead',
-                  company: 'Various',
-                  period: '2015 - 2020',
-                  description: 'Transitioned from photojournalism to software engineering, progressing to technical leadership.'
+                  role: 'Team Lead → Engineering Manager',
+                  company: 'Forward Financing',
+                  period: '2016 - 2019',
+                  description: 'First engineering hire. Built and led team of 7 engineers, established engineering culture and co-op program. Developed internal tools supporting 573% company growth and integrated ML into underwriting processes.'
                 }
               ].map((job, index) => (
                 <div key={index} className="border-l-4 border-primary pl-6 pb-6">
